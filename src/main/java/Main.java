@@ -7,7 +7,6 @@ public class Main {
         adventure.setConnections();
         Scanner scan = new Scanner(System.in);
 
-        System.out.println();
         System.out.println("Welcome to the adventure universe");
         System.out.println("You are in room1");
 

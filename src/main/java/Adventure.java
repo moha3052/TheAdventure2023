@@ -49,8 +49,6 @@ public class Adventure {
         room9.setWest(room8);
         startroom = room1;
         currentRoom = startroom;
-        System.out.println(startroom);
-
     }
 
     public void move(String retning){

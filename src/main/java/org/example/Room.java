@@ -3,19 +3,24 @@ package org.example;
 public class Room {
 
     private String name;
+    private String theNameOfTheRoom;
     private String description;
     private Room north;
     private Room east;
     private Room west;
     private Room south;
 
-    public Room(String name, String description){
+    public Room(String name, String description, String theNameOfTheRoom){
         this.name = name;
         this.description = description;
+        this.theNameOfTheRoom = theNameOfTheRoom;
     }
 
     public String getName() {
         return name;
+    }
+    public String getTheNameOfTheRoom() {
+        return theNameOfTheRoom;
     }
 
     public String getDescription() {
@@ -40,6 +45,10 @@ public class Room {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setTheNameOfTheRoom(String theNameOfTheRoom) {
+        this.theNameOfTheRoom = theNameOfTheRoom;
     }
 
     public void setDescription(String description) {

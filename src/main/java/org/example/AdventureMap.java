@@ -1,27 +1,58 @@
 package org.example;
 
 public class AdventureMap {
-    private org.example.Room room1;
-    private org.example.Room room2;
-    private org.example.Room room3;
-    private org.example.Room room4;
-    private org.example.Room room5;
-    private org.example.Room room6;
-    private org.example.Room room7;
-    private org.example.Room room8;
-    private org.example.Room room9;
+    private Room starterRoom;
+    public Room currentRoom;
+    private Player player;
+    private org.example.Room room1, room2, room3, room4, room5, room6, room7, room8,room9;
 
-    public void Createrooms(){
 
+
+
+    public void buildMap(){
         room1 = new org.example.Room("Room 1", "In this chilling room, disembodied whispers and ghostly apparitions roam freely, sharing secrets from the afterlife.", "The Whispering Parlor");
+        room1.addItem("flashlight", "use to light up the room");
+        room1.addfood("apple", "can increase your health with 20 after consumption", 20);
+
+
         room2 = new org.example.Room("Room 2", "An old library filled with ethereal books that levitate and pages that turn on their own, where a ghostly scholar forever seeks elusive knowledge", "The Spectral Study");
+        room2.addItem("Book", "an old duty tome filled with arcane knowledge");
+        room2.addfood("wine", "a vintage wine that restores your health", 30);
+
+
         room3 = new org.example.Room("Room 3", "This elegant chamber is trapped in time, hosting spectral masquerades with phantom dancers who waltz through the ages.", "The Haunted Ballroom");
+        room3.addItem("potion", "a mysterious potion with unknown effects");
+        room3.addfood("bread", "a loaf of bread that restores your health", 25);
+
         room4 = new org.example.Room("Room 4", "Filled with antique toys and echoing with the laughter of ghostly children, this room hides a tragic history that still haunts its walls.", "The Cursed Nursery");
+        room4.addItem("teddy bear", "an old, cuddly teddy bear");
+        room4.addfood("candy", "sweets that restore your health", 15);
+
+
         room5 = new org.example.Room("Room 5", "Deep beneath the manor lies a crypt filled with ominous shadows and restless spirits, where eerie whispers echo through the cold stone walls.", "The Shadowed Crypt");
+        room5.addItem("crypt key", "a key that unlocks the crypt door");
+        room5.addfood("blood orange", "a rare fruit that restores your health", 35);
+
+
         room6 = new org.example.Room("Room 6", "A place of dark experiments and unspeakable horrors, where lingering apparitions guard the sinister secrets of their former mad scientist.", "The Forbidden Laboratory");
+        room6.addItem("test tube", "a mysterious test tube filled with liquid");
+        room6.addfood("cookie", "a cookie that restores your health", 10);
+
+
         room7 = new org.example.Room("Room 7", "This room is inhabited by a vengeful spirit, known as the \"Lady in White,\" who weeps eternally, leaving behind tear-stained mirrors and chilling cold spots.", "The Phantom's Chamber");
+        room7.addItem("mirror shard", "a shard from a broken mirror");
+        room7.addfood("ghostly elixir", "an elixir that restores your health", 40);
+
+
         room8 = new org.example.Room("Room 8", "Hidden away at the top of the house, this attic is a realm of perpetual twilight, inhabited by a mischievous poltergeist who delights in moving objects and casting eerie silhouettes.", "The Twilight Attic");
+        room8.addItem("old photograph", "a faded photograph of a family");
+        room8.addfood("stale bread", "bread that restores your health", 20);
+
+
         room9 = new org.example.Room("Room 9", "A room of sorrow and despair, where the anguished moans of lingering souls mix with the scent of embalming fluid, creating an eerie and unsettling atmosphere.", "The Melancholy Morgue");
+        room9.addItem("embalming fluid", "a bottle of embalming fluid");
+        room9.addfood("rotten apple", "an apple that restores your health", 5);
+
 
         room1.setEast(room2);
         room1.setSouth(room4);
@@ -50,6 +81,15 @@ public class AdventureMap {
         room9.setNorth(room6);
         room9.setWest(room8);
 
+        currentRoom = room1;
+
+    }
+
+public Room getStarterRoom(){
+        return starterRoom=room1;
+}
+    public Room getCurrentRoom() {
+        return currentRoom;
     }
 
     public Room getRoom1() {
@@ -123,4 +163,7 @@ public class AdventureMap {
     public void setRoom9(Room room9) {
         this.room9 = room9;
     }
+
+
+
 }

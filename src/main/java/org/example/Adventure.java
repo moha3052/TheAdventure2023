@@ -1,111 +1,51 @@
 package org.example;
-
+import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
 public class Adventure {
+    private AdventureMap map;
+    private Player player;
 
-    Room currentRoom;
+    private Room room;
 
-    public static void main(String[] args) {
-
-        Adventure game = new Adventure();
-        AdventureMap map = new AdventureMap();
-        map.Createrooms();
-
-        game.currentRoom = map.getRoom1();
-
-
-
-        Scanner scan = new Scanner(System.in);
-
-
-        System.out.println("Welcome to the adventure universe");
-        System.out.println("Her is you options\n" +
-                           "(1) start game\n" +
-                           "(2) Exit");
-        int input = scan.nextInt();
-
-        boolean keepRuning;
-
-        switch (input){
-            case 1:
-                System.out.println("Enter e,w,s,n to move to a next room");
-                keepRuning = true;
-                break;
-            case 2:
-                System.out.println("You have exit the game");
-                keepRuning = false;
-                break;
-
-            default:
-                keepRuning = false;
-
-        }
-
-
-        while (keepRuning) {
-            String retning = scan.nextLine();
-
-            game.move(retning);
-
-        }
-    }
-
-    public void move(String retning) {
-        switch (retning) {
-            case "go north", "n":
-                if (currentRoom.getNorth() != null) {
-                    currentRoom = currentRoom.getNorth();
-                    System.out.println("You are now in" + " " + currentRoom.getName());
-                    System.out.println(currentRoom.getDescription());
-                } else {
-                    System.out.println("You can not go this way.");
-                }
-                break;
-
-            case "go east", "e":
-                if (currentRoom.getEast() != null) {
-                    currentRoom = currentRoom.getEast();
-                    System.out.println("You are now in" + " " + currentRoom.getName());
-                    System.out.println(currentRoom.getDescription());
-                } else {
-                    System.out.println("You can not go this way.");
-                }
-                break;
-
-
-            case "go west", "w":
-                if (currentRoom.getWest() != null) {
-                    currentRoom = currentRoom.getWest();
-                    System.out.println("You are now in" + " " + currentRoom.getName());
-                    System.out.println(currentRoom.getDescription());
-                } else {
-                    System.out.println("You can not go this way.");
-                }
-                break;
-
-
-            case "go south", "s":
-                if (currentRoom.getSouth() != null) {
-                    currentRoom = currentRoom.getSouth();
-                    System.out.println("You are now in" + " " + currentRoom.getName());
-                    System.out.println(currentRoom.getDescription());
-                } else {
-                    System.out.println("You can not go this way.");
-                }
-                break;
-
-            case "look":
-                System.out.println("You are now in" + " " + currentRoom.getName());
-                System.out.println(currentRoom.getDescription());
-                break;
-
-                default:
-
-                break;
-        }
+    public Adventure() {
+        map = new AdventureMap();
+        map.buildMap();
+        player = new Player();
+        player.setCurrentRoom(map.getStarterRoom());
 
 
     }
+
+    public void look(){
+        player.look();
+    }
+
+
+    public void pickUp(String itemName){
+        player.take(itemName);
+    }
+
+    public void drop(String itemName){
+        player.drop(itemName);
+    }
+
+
+    public ArrayList<Item> getRoomItems(){
+        return player.getCurrentRoom().getRoomItems();
+    }
+    public int getHealth(){
+        return player.getHealth();
+    }
+
+    public void move(String retning){
+        player.move(retning);
+    }
+
+public void getInventory(){
+        player.getInventory();
 }
 
+}

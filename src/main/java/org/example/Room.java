@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Room {
 
     private String name;
@@ -9,12 +11,33 @@ public class Room {
     private Room east;
     private Room west;
     private Room south;
+    private Room room;
 
-    public Room(String name, String description, String theNameOfTheRoom){
+
+    private ArrayList<Item> roomItems = new ArrayList<Item>();
+
+    public Room(String name, String description, String theNameOfTheRoom) {
         this.name = name;
         this.description = description;
         this.theNameOfTheRoom = theNameOfTheRoom;
     }
+
+    public Room getroom(String retning) {
+        switch (retning) {
+            case "north":
+                return north;
+            case "east":
+                return east;
+            case "west":
+                return west;
+            case "go south", "s":
+                return south;
+            default:
+                return null;
+        }
+    }
+
+
 
     public String getName() {
         return name;
@@ -35,6 +58,7 @@ public class Room {
         return east;
     }
 
+
     public Room getWest() {
         return west;
     }
@@ -42,6 +66,7 @@ public class Room {
     public Room getSouth() {
         return south;
     }
+
 
     public void setName(String name) {
         this.name = name;
@@ -67,15 +92,33 @@ public class Room {
         this.west = west;
     }
 
+    public void setRoom(Room room){
+        this.room = room;
+    }
+
     public void setSouth(Room south) {
         this.south = south;
     }
+
+
 
     @Override
     public String toString() {
         return "Room{"
                 + "name='"  + name + '\'' +
                 ", description='" + description + '\'';
+    }
+
+    public ArrayList<Item> getRoomItems(){
+        return roomItems;
+    }
+
+    public void addItem(String name, String description){
+        roomItems.add(new Item(name, description));
+    }
+
+    public void addfood(String name, String description, int healthpoints){
+        roomItems.add(new Food(name, description, healthpoints));
     }
 
 }

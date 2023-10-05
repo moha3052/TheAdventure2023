@@ -6,6 +6,7 @@ package org.example;
         public Food(String name, String description, int healthPoints) {
             super(name, description);
             this.healthPoints = healthPoints;
+            edible  = true;
         }
 
         public int getHealthPoints() {
@@ -15,10 +16,10 @@ package org.example;
         @Override
         public String toString() {
             return "\n"+ "Food" +
-                    "healthPoints=" + healthPoints +
-                    ", name='" + getName() + '\'' +
-                    ", description='" + getDescription() + '\'' +
-                    '}';
+                    "healthPoints = "+ healthPoints +
+                    "\n"+
+                    "name = " + getName() +
+                    "\n"+ "description =" + getDescription();
         }
     }
 

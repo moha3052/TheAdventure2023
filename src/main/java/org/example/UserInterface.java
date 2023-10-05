@@ -83,15 +83,29 @@ String itemName;
              adventure.pickUp(item);
              break;
 
-            case "inventorry":
+            case "inventorry", "i":
                 adventure.getInventory();
-
-            case "drop", "d":
-                String dropItem = scan.nextLine();
-                System.out.println("What do you want to drop");
-                adventure.drop(dropItem);
                 break;
 
+            case "drop", "d":
+                System.out.println("What do you want to drop");
+                String dropItem = scan.nextLine();
+                adventure.drop(dropItem);
+                System.out.println(dropItem + " is dropped");
+
+                break;
+
+            case "eat":
+                System.out.println("What item do you want to eat");
+                String eatItem = scan.nextLine();
+                if (adventure.eat(eatItem)){
+                    System.out.println(eatItem + " is eat");
+                }
+                else {
+                    System.out.println(eatItem + " is not food");
+                }
+
+                break;
 
             case "look", "l":
                adventure.look();

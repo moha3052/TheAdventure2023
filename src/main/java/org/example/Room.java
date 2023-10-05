@@ -104,9 +104,9 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room{"
-                + "name='"  + name + '\'' +
-                ", description='" + description + '\'';
+        return "Room " + description+ "description "+ '\'' +
+                 "name =" + name + '\'';
+
     }
 
     public ArrayList<Item> getRoomItems(){

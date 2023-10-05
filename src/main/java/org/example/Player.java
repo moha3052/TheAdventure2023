@@ -46,7 +46,7 @@ public class Player {
     public void drop(String itemName) {
         Item found = null;
         for (Item item : inventory) {
-            if (item.getName().equals(itemName)) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
                 found = item;
                 break;
             }
@@ -111,6 +111,24 @@ public class Player {
     public int getHealth() {
         return health;
     }
+
+
+        public boolean eat(String itemName) {
+            Food found = null;
+            for (Item item : inventory) {
+                if (item.getName().equalsIgnoreCase(itemName)) {
+                    if (item.isEdible()){ // item instanceof Food
+                        found = (Food) item;
+                    }
+                }
+            }
+            if (found != null) {
+                health += found.getHealthPoints();
+                inventory.remove(found);
+                return true;
+            }
+            return false;
+        }
 
 
 }

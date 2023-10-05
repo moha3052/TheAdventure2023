@@ -32,6 +32,9 @@ public class Adventure {
         player.drop(itemName);
     }
 
+    public boolean eat(String eatitem){
+        return player.eat(eatitem);
+    }
 
     public ArrayList<Item> getRoomItems(){
         return player.getCurrentRoom().getRoomItems();
@@ -47,5 +50,7 @@ public class Adventure {
 public void getInventory(){
         player.getInventory();
 }
+
+
 
 }

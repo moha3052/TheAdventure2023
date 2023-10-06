@@ -156,4 +156,14 @@ public class Player {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Player{" +
+                "map=" + map +
+                "\n"+
+                ", currentRoom=" + currentRoom +
+                ", inventory=" + inventory +
+                ", health=" + health +
+                '}';
+    }
 }

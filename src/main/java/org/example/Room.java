@@ -95,7 +95,8 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room " + description+ "description "+ '\'' +
+        return "Room" + "\n"
+                + description+ "\n" + "description "+ '\'' +
                  "name =" + name + '\'';
 
     }

@@ -26,8 +26,8 @@ private Adventure adventure;
             input = scan.nextLine();
             switch (input){
                 case "1","start":
-                    System.out.println("You are now in room 1");
                     System.out.println("Enter e,w,s,n to move to a next room");
+                    System.out.println("You are now in room 1");
 
                     keepRuning = true;
 

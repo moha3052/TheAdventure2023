@@ -10,14 +10,26 @@ public class Player {
 
 
     public void move(String retning){
-        Room nextRoom = currentRoom.getroom(retning);
+        Room nextRoom = getroom(retning);
         if (nextRoom!=null){
-            currentRoom=nextRoom;
-            System.out.println(currentRoom.getName()+
-                    "\n"+ "going"+" "+ retning);
+            currentRoom = nextRoom;
+            System.out.println(currentRoom.getName()+ "\n"+ "going"+" "+ retning);
         }
         else {
             System.out.println("you cannot go that way");
+        }
+    }
+
+    public Room getroom(String retning) {
+        switch (retning) {
+            case "north" -> {
+                return currentRoom.getNorth();}
+            case "east" ->{
+                return currentRoom.getEast();}
+            case "west" -> {
+                return currentRoom.getWest();}
+            case "south" -> { return currentRoom.getSouth();}
+            default -> {return null;}
         }
     }
 
@@ -130,5 +142,18 @@ public class Player {
             return false;
         }
 
+    public void attack (String itemName) {
+        Item found = null;
+        for (Item item : inventory) {
+            if (item instanceof Weapon) {
+                found = item;
+                break;
+            }
+        }
+        if (found != null) {
+            inventory.remove(found);
+            currentRoom.getRoomItems().add(found);
+        }
+    }
 
 }

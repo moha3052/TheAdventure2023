@@ -36,6 +36,12 @@ public class Adventure {
         return player.eat(eatitem);
     }
 
+    public void attack(String AttackWithWeapon){
+        player.attack(AttackWithWeapon);
+    }
+
+
+
     public ArrayList<Item> getRoomItems(){
         return player.getCurrentRoom().getRoomItems();
     }

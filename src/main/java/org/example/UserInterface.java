@@ -26,6 +26,7 @@ private Adventure adventure;
             input = scan.nextLine();
             switch (input){
                 case "1","start":
+                    System.out.println("You are now in room 1");
                     System.out.println("Enter e,w,s,n to move to a next room");
 
                     keepRuning = true;
@@ -57,22 +58,22 @@ String itemName;
         String command=scan.nextLine();
         switch (command) {
 
-            case "go north", "n":
+            case "go north", "north", "n":
                 adventure.move("north");
                 break;
 
 
-            case "go east", "e":
+            case "go east", "east", "e":
               adventure.move("east");
                 break;
 
 
-            case "go west", "w":
+            case "go west", "west", "w":
                adventure.move("west");
                 break;
 
 
-            case "go south", "s":
+            case "go south", "south", "go s", "s":
                 adventure.move("south");
                 break;
 
@@ -106,6 +107,11 @@ String itemName;
                 }
 
                 break;
+
+            case "attack":
+                System.out.println("attack something");
+                String attack = scan.nextLine();
+                adventure.attack(attack);
 
             case "look", "l":
                adventure.look();

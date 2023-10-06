@@ -3,7 +3,6 @@ package org.example;
 import java.util.ArrayList;
 
 public class Room {
-
     private String name;
     private String theNameOfTheRoom;
     private String description;
@@ -14,6 +13,7 @@ public class Room {
     private Room room;
 
 
+
     private ArrayList<Item> roomItems = new ArrayList<Item>();
 
     public Room(String name, String description, String theNameOfTheRoom) {
@@ -22,20 +22,7 @@ public class Room {
         this.theNameOfTheRoom = theNameOfTheRoom;
     }
 
-    public Room getroom(String retning) {
-        switch (retning) {
-            case "north":
-                return north;
-            case "east":
-                return east;
-            case "west":
-                return west;
-            case "go south", "s":
-                return south;
-            default:
-                return null;
-        }
-    }
+
 
 
 
@@ -49,6 +36,8 @@ public class Room {
     public String getDescription() {
         return description;
     }
+
+
 
     public Room getNorth() {
         return north;
@@ -71,6 +60,8 @@ public class Room {
     public void setName(String name) {
         this.name = name;
     }
+
+
 
     public void setTheNameOfTheRoom(String theNameOfTheRoom) {
         this.theNameOfTheRoom = theNameOfTheRoom;
@@ -119,6 +110,10 @@ public class Room {
 
     public void addfood(String name, String description, int healthpoints){
         roomItems.add(new Food(name, description, healthpoints));
+    }
+
+    public void addweapon(String name, String nameoftheweapon){
+        roomItems.add(new Weapon(name,nameoftheweapon));
     }
 
 }

@@ -7,6 +7,11 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory;
     private int health = 50;
+    private Weapon equip;
+
+    private String player;
+
+
 
 
     public void move(String retning){
@@ -46,7 +51,7 @@ public class Player {
     public void take(String itemName) {
         Item found = null;
         for (Item item : currentRoom.getRoomItems())
-            if (item.getName().equals(itemName)) {
+            if (item.getItemname().equals(itemName)) {
                 inventory.add(item);
                 found = item;
                 break;
@@ -58,7 +63,7 @@ public class Player {
     public void drop(String itemName) {
         Item found = null;
         for (Item item : inventory) {
-            if (item.getName().equalsIgnoreCase(itemName)) {
+            if (item.getItemname().equalsIgnoreCase(itemName)) {
                 found = item;
                 break;
             }
@@ -107,13 +112,17 @@ public class Player {
         }
     }
 
+    public void setHealth(int health){
+        this.health = health;
+    }
+
     public String getCurrentRoomName() {
         return currentRoom.getName();
     }
     public void look(){
-        System.out.println(currentRoom.getName()+ " " +currentRoom.getDescription()+ " "
+        System.out.println(currentRoom.getName()+ "\n" +currentRoom.getDescription()+ " "
                 +currentRoom.getTheNameOfTheRoom()+" "
-                +currentRoom.getRoomItems());
+                +currentRoom.getRoomItems()+ "\n" + currentRoom.getRoomEnemies());
     }
 
     public String getCurrentRoomDescription() {
@@ -128,7 +137,7 @@ public class Player {
         public boolean eat(String itemName) {
             Food found = null;
             for (Item item : inventory) {
-                if (item.getName().equalsIgnoreCase(itemName)) {
+                if (item.getItemname().equalsIgnoreCase(itemName)) {
                     if (item.isEdible()){ // item instanceof Food
                         found = (Food) item;
                     }
@@ -142,28 +151,52 @@ public class Player {
             return false;
         }
 
-    public void attack (String itemName) {
+    public void attack (String enemyName) {
+        Enemy enemy = currentRoom.findEnemy(enemyName);
+
+        if (equip == null){
+            System.out.println("you don´t have a weapon");
+
+
+        } else {
+         enemy.setEnemyHealthPoints(enemy.getenemyHealthPoints()-equip.getDamage());
+            System.out.println("enemy get hit by the player" );
+            System.out.println("enemy health" + enemy.getenemyHealthPoints());
+         setHealth(health-enemy.getEnemyWeapon().getDamage());
+            System.out.println("player health" + getHealth());
+            System.out.println("you got hit" + enemy.getnameOfTheEnemy());
+
+        }
+
+
+    }
+
+    public void createPerson(String personName){
+
+    }
+
+    public boolean equip(String itemName) {
         Item found = null;
         for (Item item : inventory) {
-            if (item instanceof Weapon) {
-                found = item;
-                break;
+            if (item.getItemname().equalsIgnoreCase(itemName)) {
+                if (item instanceof Weapon) {
+                    found = item;
+                    equip = (Weapon) found;
+                    return true;
+                }
+
             }
         }
-        if (found != null) {
-            inventory.remove(found);
-            currentRoom.getRoomItems().add(found);
-        }
+        return false;
     }
 
     @Override
     public String toString() {
         return "Player{" +
-                "map=" + map +
-                "\n"+
-                ", currentRoom=" + currentRoom +
-                ", inventory=" + inventory +
-                ", health=" + health +
-                '}';
+                "\n"+ "map = " + map +
+                "\n"+ " currentRoom = " + currentRoom +
+                "\n"+ "inventory = " + inventory +
+                "\n"+ " health = " + health +
+                "\n"+ "equip = " + equip;
     }
 }

@@ -13,8 +13,10 @@ public class Room {
     private Room room;
 
 
+    private ArrayList<Item> roomItems = new ArrayList<>();
+    private ArrayList<Enemy> roomEnemies = new ArrayList<>();
 
-    private ArrayList<Item> roomItems = new ArrayList<Item>();
+    private ArrayList<CreatePerson> roomPerson = new ArrayList<>();
 
     public Room(String name, String description, String theNameOfTheRoom) {
         this.name = name;
@@ -23,12 +25,10 @@ public class Room {
     }
 
 
-
-
-
     public String getName() {
         return name;
     }
+
     public String getTheNameOfTheRoom() {
         return theNameOfTheRoom;
     }
@@ -36,8 +36,6 @@ public class Room {
     public String getDescription() {
         return description;
     }
-
-
 
     public Room getNorth() {
         return north;
@@ -62,7 +60,6 @@ public class Room {
     }
 
 
-
     public void setTheNameOfTheRoom(String theNameOfTheRoom) {
         this.theNameOfTheRoom = theNameOfTheRoom;
     }
@@ -83,7 +80,7 @@ public class Room {
         this.west = west;
     }
 
-    public void setRoom(Room room){
+    public void setRoom(Room room) {
         this.room = room;
     }
 
@@ -92,29 +89,40 @@ public class Room {
     }
 
 
-
     @Override
     public String toString() {
         return "Room" + "\n"
-                + description+ "\n" + "description "+ '\'' +
-                 "name =" + name + '\'';
+                + description + "\n" + "description " + '\'' +
+                "\n" + "name =" + name + '\'';
 
     }
 
-    public ArrayList<Item> getRoomItems(){
+    public ArrayList<Item> getRoomItems() {
         return roomItems;
     }
 
-    public void addItem(String name, String description){
-        roomItems.add(new Item(name, description));
+    public ArrayList<Enemy> getRoomEnemies() {
+        return roomEnemies;
     }
 
-    public void addfood(String name, String description, int healthpoints){
-        roomItems.add(new Food(name, description, healthpoints));
+    public void addEnemy(Enemy enemy) {
+        roomEnemies.add(enemy);
     }
 
-    public void addweapon(String name, String nameoftheweapon){
-        roomItems.add(new Weapon(name,nameoftheweapon));
+    public ArrayList<CreatePerson> getRoomPerson() {
+        return roomPerson;
+    }
+    public void addPerson(CreatePerson person){
+        roomPerson.add(person);
     }
 
+    public Enemy findEnemy(String enemyName) {
+
+        for (Enemy enemyName1 : getRoomEnemies())
+            if (enemyName1.getnameOfTheEnemy().equalsIgnoreCase(enemyName)){
+                return enemyName1;
+            }
+        return null;
+
+    }
 }

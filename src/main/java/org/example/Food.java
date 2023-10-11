@@ -15,11 +15,12 @@ package org.example;
 
         @Override
         public String toString() {
-            return "\n"+ "Food" +
-                    "healthPoints = "+ healthPoints +
+            return "\n"+
+
                     "\n"+
-                    "name = " + getName() +
-                    "\n"+ "description =" + getDescription();
+                    "Food name = " + getItemname() +
+                    "\n"+ "healthPoints = " + healthPoints +
+                    "\n"+ "description = " + getDescription();
         }
     }
 

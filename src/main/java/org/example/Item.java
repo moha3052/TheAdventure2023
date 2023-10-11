@@ -1,23 +1,22 @@
 package org.example;
 
     public class Item {
-        private String name;
+        private String itemName;
         private String description;
         protected boolean edible;
 
         public Item(String name, String description) {
-            this.name = name;
+            this.itemName = name;
             this.description = description;
             this.edible = false;
-
         }
 
         public boolean isEdible() {
             return edible;
         }
 
-        public String getName() {
-            return name;
+        public String getItemname() {
+            return itemName;
         }
 
         public String getDescription() {
@@ -27,8 +26,8 @@ package org.example;
         @Override
         public String toString() {
             return
-                    "\n"+ "Item " +
-                    "name = " + name +
+                    "\n"+ "\n"+ "Item " +
+                    "name = " + itemName +
                     "." +"\n"+
                      "description = " + description;
         }

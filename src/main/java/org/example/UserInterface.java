@@ -18,16 +18,18 @@ private Adventure adventure;
         System.out.println("Welcome to the adventure universe");
         System.out.println("Her is you options\n" +
                 "(1) start game\n" +
-                "(2) Exit");
+                "(2) create Your Own Character\n" +
+                "(3) Exit");
         String input;
         boolean keepRuning;
         boolean runGame;
         do {
             input = scan.nextLine();
             switch (input){
-                case "1","start":
+                case "1","start", "START":
                     System.out.println("Enter e,w,s,n to move to a next room");
                     System.out.println("You are now in room 1");
+
 
                     keepRuning = true;
 
@@ -36,9 +38,16 @@ private Adventure adventure;
                     while(runGame) {
                         StartGame();
                     }
-
                     break;
-                case "2","exit":
+
+                case "2", "Create", "create" :
+                    System.out.println("Create your own character");
+                    System.out.println("Enter a name");
+                    adventure.getRoomItems();
+                    System.out.println("Enter a age");
+
+
+                case "3","exit", "EXIT":
                     System.out.println("You have exit the game");
                     keepRuning = false;
                     break;
@@ -46,8 +55,9 @@ private Adventure adventure;
                 default:
                     System.out.println("Try again!");
                     System.out.println("Her is you options\n" +
-                            "(1) start game\n" +
-                            "(2) Exit");
+                            "(1) Start game\n" +
+                            "(2) Create Your Own Character\n"+
+                            "(3) Exit");
                     keepRuning = true;
             }
         } while (keepRuning);
@@ -78,7 +88,7 @@ String itemName;
                 break;
 
 
-            case "Take", "t":
+            case "take", "t":
             System.out.println("What do you want to take");
              String item = scan.nextLine();
              adventure.pickUp(item);
@@ -108,13 +118,29 @@ String itemName;
 
                 break;
 
-            case "attack":
+            case "equip", "eq":
+                System.out.println("What weapon do you want to take");
+                String equipweapon = scan.nextLine();
+                if (adventure.equip(equipweapon)){
+                    System.out.println(equipweapon + " is taken");
+                    break;
+                }
+                else {
+                    System.out.println(equipweapon + " is not a weapon");
+                    break;
+                }
+
+
+
+            case "attack", "a":
                 System.out.println("attack something");
-                String attack = scan.nextLine();
-                adventure.attack(attack);
+                String enemyName = scan.nextLine();
+                adventure.attack(enemyName);
+                break;
 
             case "look", "l":
                adventure.look();
+
                 break;
 
 

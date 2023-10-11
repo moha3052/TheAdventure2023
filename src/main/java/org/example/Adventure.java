@@ -8,6 +8,7 @@ public class Adventure {
     private AdventureMap map;
     private Player player;
 
+
     private Room room;
 
     public Adventure() {
@@ -36,8 +37,11 @@ public class Adventure {
         return player.eat(eatitem);
     }
 
-    public void attack(String AttackWithWeapon){
-        player.attack(AttackWithWeapon);
+    public void attack(String enemyName){
+        player.attack(enemyName);
+    }
+    public boolean equip (String equip){
+        return player.equip(equip);
     }
 
 

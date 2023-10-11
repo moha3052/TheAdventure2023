@@ -53,7 +53,7 @@ public class Enemy {
         public String toString(){
             return "\n"+ "NameOfTheEnemy:"+ " " + nameOfTheEnemy +
                     "\n"+"DescriptionOfTheEnemy:"+ " " + descriptionOfTheEnemy +
-                    "\n" +"Weapon Name"+ " "+ getEnemyWeapon() +
+                    "\n" + getEnemyWeapon() +
                     "\n"+ "EnemyHealthPoints:" +" "+ enemyHealthPoints;
         }
 

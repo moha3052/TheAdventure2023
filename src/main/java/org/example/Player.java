@@ -1,5 +1,6 @@
 package org.example;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Player {
@@ -9,7 +10,8 @@ public class Player {
     private int health = 50;
     private Weapon equip;
 
-    private String player;
+    private String playerName;
+    private int playerAge;
 
 
 
@@ -42,6 +44,16 @@ public class Player {
         inventory = new ArrayList<>();
         map = new AdventureMap();
         currentRoom = map.getRoom1();
+        this.playerName = "";
+        this.playerAge = 0;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public void setPlayerAge(int playerAge) {
+        this.playerAge = playerAge;
     }
 
     public Room getCurrentRoom(){
@@ -120,9 +132,14 @@ public class Player {
         return currentRoom.getName();
     }
     public void look(){
-        System.out.println(currentRoom.getName()+ "\n" +currentRoom.getDescription()+ " "
-                +currentRoom.getTheNameOfTheRoom()+" "
-                +currentRoom.getRoomItems()+ "\n" + currentRoom.getRoomEnemies());
+        System.out.println(currentRoom.getName()+ "\n" +currentRoom.getDescription());
+        for (Item i : currentRoom.getRoomItems()) {
+            System.out.println(i);
+        }
+        for (Enemy e : currentRoom.getRoomEnemies()) {
+            System.out.println(e);
+        }
+
     }
 
     public String getCurrentRoomDescription() {
@@ -192,7 +209,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
+        return "Player" +
                 "\n"+ "map = " + map +
                 "\n"+ " currentRoom = " + currentRoom +
                 "\n"+ "inventory = " + inventory +

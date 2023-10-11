@@ -24,6 +24,19 @@ public class Adventure {
         player.look();
     }
 
+    public void reName(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("enter player name: ");
+        String name = scanner.nextLine();
+
+        System.out.println("Enter player age: ");
+        int age = scanner.nextInt();
+        scanner.nextLine();
+
+        player.setPlayerAge(age);
+        player.setPlayerName(name);
+    }
+
 
     public void pickUp(String itemName){
         player.take(itemName);

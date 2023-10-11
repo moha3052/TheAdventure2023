@@ -17,37 +17,22 @@ private Adventure adventure;
 
         System.out.println("Welcome to the adventure universe");
         System.out.println("Her is you options\n" +
-                "(1) start game\n" +
-                "(2) create Your Own Character\n" +
-                "(3) Exit");
+                "(1) Create your own character and the game will begin\n" +
+                "(2) Exit");
         String input;
-        boolean keepRuning;
+        boolean keepRuning = true;
         boolean runGame;
         do {
             input = scan.nextLine();
             switch (input){
-                case "1","start", "START":
-                    System.out.println("Enter e,w,s,n to move to a next room");
-                    System.out.println("You are now in room 1");
-
-
-                    keepRuning = true;
-
-                    //det her er hvor spillet kører
-                    runGame = true;
-                    while(runGame) {
-                        StartGame();
-                    }
+                case "1", "Create", "create" :
+                    System.out.println("Create your own character and the game will begin ");
+                    adventure.reName();
+                    StartGame();
                     break;
 
-                case "2", "Create", "create" :
-                    System.out.println("Create your own character");
-                    System.out.println("Enter a name");
-                    adventure.getRoomItems();
-                    System.out.println("Enter a age");
 
-
-                case "3","exit", "EXIT":
+                case "2","exit", "EXIT":
                     System.out.println("You have exit the game");
                     keepRuning = false;
                     break;
@@ -55,16 +40,19 @@ private Adventure adventure;
                 default:
                     System.out.println("Try again!");
                     System.out.println("Her is you options\n" +
-                            "(1) Start game\n" +
-                            "(2) Create Your Own Character\n"+
-                            "(3) Exit");
-                    keepRuning = true;
+                            "(1) Create your own character and the game will begin \n"+
+                            "(2) Exit");
+
             }
         } while (keepRuning);
     }
 String itemName;
     public void StartGame() {
+        boolean runningMainGame = true;
+        do {
         System.out.println("enter a command");
+        System.out.println("Enter e,w,s,n to move to a next room");
+        System.out.println("You are now in room 1");
         String command=scan.nextLine();
         switch (command) {
 
@@ -152,7 +140,8 @@ String itemName;
                 default:
                 System.out.println(" try again");
                 break;
-        }
+            }
+        } while(runningMainGame);
 
     }
 }

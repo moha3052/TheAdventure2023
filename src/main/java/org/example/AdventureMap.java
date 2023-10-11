@@ -27,7 +27,7 @@ public class AdventureMap {
 
         room2.getRoomItems().add(new RangedWeapon("ak 47", 0, 100));
 
-        room1.addEnemy(new Enemy("Joker", "Known as Batman's arch-nemesis", 10,
+        room2.addEnemy(new Enemy("Joker", "Known as Batman's arch-nemesis", 10,
                 new RangedWeapon("sniper","Can hit somebody from a long distance", 20,10)));
         // Room 3
 

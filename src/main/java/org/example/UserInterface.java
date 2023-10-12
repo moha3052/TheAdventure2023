@@ -88,6 +88,7 @@ String itemName;
                 break;
 
             case "help", "h":
+                System.out.println();
                 System.out.println("Her is you options:");
                 System.out.println();
                 getHelp();

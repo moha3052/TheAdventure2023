@@ -49,10 +49,16 @@ private Adventure adventure;
 String itemName;
     public void StartGame() {
         boolean runningMainGame = true;
+        boolean startruning = false;
         do {
-        System.out.println("enter a command");
-        System.out.println("Enter e,w,s,n to move to a next room");
-        System.out.println("You are now in room 1");
+
+            System.out.println("\n-------------------------------------------");
+            System.out.println("enter a command");
+        if (!startruning){
+            System.out.println("Enter e,w,s,n to move to a next room");
+        System.out.println(adventure.getplayerName() + " is now in room 1");
+        } startruning = true;
+
         String command=scan.nextLine();
         switch (command) {
 

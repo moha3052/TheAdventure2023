@@ -32,4 +32,11 @@ public class CreatePerson {
     public  int getPersonAge(){
         return personAge;
     }
+
+    @Override
+    public String toString() {
+        return "CreatePerson" +
+                "personName =" + personName + '\'' +
+                "personAge =" + personAge;
+    }
 }

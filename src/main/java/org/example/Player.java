@@ -20,7 +20,8 @@ public class Player {
         Room nextRoom = getroom(retning);
         if (nextRoom!=null){
             currentRoom = nextRoom;
-            System.out.println(currentRoom.getName()+ "\n"+ "going"+" "+ retning);
+            System.out.println(playerName + " is going "+ retning + " and are now in " + currentRoom.getName());
+
         }
         else {
             System.out.println("you cannot go that way");
@@ -52,6 +53,10 @@ public class Player {
         this.playerName = playerName;
     }
 
+    public String getPlayerName(String playerName){
+        return playerName;
+    }
+
     public void setPlayerAge(int playerAge) {
         this.playerAge = playerAge;
     }
@@ -66,9 +71,11 @@ public class Player {
             if (item.getItemname().equals(itemName)) {
                 inventory.add(item);
                 found = item;
+
                 break;
             }
         currentRoom.getRoomItems().remove(found);
+        System.out.println(currentRoom.getRoomEnemies());
 
     }
 
@@ -149,6 +156,9 @@ public class Player {
     public int getHealth() {
         return health;
     }
+    public String getPlayerName(){
+        return playerName;
+    }
 
 
         public boolean eat(String itemName) {
@@ -177,20 +187,29 @@ public class Player {
 
         } else {
          enemy.setEnemyHealthPoints(enemy.getenemyHealthPoints()-equip.getDamage());
-            System.out.println("enemy get hit by the player" );
-            System.out.println("enemy health" + enemy.getenemyHealthPoints());
+            System.out.println();
+            System.out.println("enemy get hit by " + playerName);
+            System.out.println();
+            System.out.println("enemy health " + enemy.getenemyHealthPoints());
+            System.out.println();
          setHealth(health-enemy.getEnemyWeapon().getDamage());
-            System.out.println("player health" + getHealth());
-            System.out.println("you got hit" + enemy.getnameOfTheEnemy());
 
+            System.out.println(playerName+ " health is " + getHealth());
+            System.out.println();
+            System.out.println("you got hit by " + enemy.getnameOfTheEnemy());
+
+        }
+        if (enemy.isDead()){
+            System.out.println();
+            System.out.println("You killed the enemy ");
+            currentRoom.getRoomItems().add(enemy.getEnemyWeapon());
+            currentRoom.getRoomEnemies().remove(enemy);
         }
 
 
-    }
-
-    public void createPerson(String personName){
 
     }
+
 
     public boolean equip(String itemName) {
         Item found = null;

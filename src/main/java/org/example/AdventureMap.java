@@ -12,7 +12,7 @@ public class AdventureMap {
     public void buildMap(){
         // Room 1
 
-        room1 = new org.example.Room(" You are now in Room 1", "In this chilling room, disembodied whispers and ghostly apparitions roam freely, sharing secrets from the afterlife.", "\n"+ "The Whispering Parlor");
+        room1 = new org.example.Room("Room 1", "In this chilling room, disembodied whispers and ghostly apparitions roam freely, sharing secrets from the afterlife.","The Whispering Parlor");
         room1.getRoomItems().add(new Item("flashlight", "use to light up the room"));
         room1.getRoomItems().add(new Food("apple", "can increase your health with 20 after consumption", 20));
         room1.getRoomItems().add(new RangedWeapon("ak 47", 50, 100));
@@ -21,17 +21,17 @@ public class AdventureMap {
 
         // Room 2
 
-        room2 = new org.example.Room("You are now in Room 2", "An old library filled with ethereal books that levitate and pages that turn on their own, where a ghostly scholar forever seeks elusive knowledge", "The Spectral Study");
+        room2 = new org.example.Room("Room 2", "An old library filled with ethereal books that levitate and pages that turn on their own, where a ghostly scholar forever seeks elusive knowledge", "The Spectral Study");
         room2.getRoomItems().add(new Item("Book", "an old duty tome filled with arcane knowledge"));
         room2.getRoomItems().add(new Food("wine", "a vintage wine that restores your health", 30));
 
-        room2.getRoomItems().add(new RangedWeapon("ak 47", 0, 100));
+        room2.getRoomItems().add(new RangedWeapon("ak 47", 50, 100));
 
         room2.addEnemy(new Enemy("Joker", "Known as Batman's arch-nemesis", 10,
                 new RangedWeapon("sniper","Can hit somebody from a long distance", 20,10)));
         // Room 3
 
-        room3 = new org.example.Room("You are now in Room 3", "This elegant chamber is trapped in time, hosting spectral masquerades with phantom dancers who waltz through the ages.", "The Haunted Ballroom");
+        room3 = new org.example.Room("Room 3", "This elegant chamber is trapped in time, hosting spectral masquerades with phantom dancers who waltz through the ages.", "The Haunted Ballroom");
         room3.getRoomItems().add(new Item("potion", "a mysterious potion with unknown effects"));
         room3.getRoomItems().add(new Food("bread", "a loaf of bread that restores your health", 25));
 
@@ -39,7 +39,7 @@ public class AdventureMap {
 
         // Room 4
 
-        room4 = new org.example.Room("You are now in Room 4", "Filled with antique toys and echoing with the laughter of ghostly children, this room hides a tragic history that still haunts its walls.", "The Cursed Nursery");
+        room4 = new org.example.Room("Room 4", "Filled with antique toys and echoing with the laughter of ghostly children, this room hides a tragic history that still haunts its walls.", "The Cursed Nursery");
         room4.getRoomItems().add(new Item("teddy bear", "an old, cuddly teddy bear"));
         room4.getRoomItems().add(new Food("candy", "sweets that restore your health", 15));
 
@@ -47,7 +47,7 @@ public class AdventureMap {
 
         // Room 5
 
-        room5 = new org.example.Room("You are now in Room 5", "Deep beneath the manor lies a crypt filled with ominous shadows and restless spirits, where eerie whispers echo through the cold stone walls.", "The Shadowed Crypt");
+        room5 = new org.example.Room("Room 5", "Deep beneath the manor lies a crypt filled with ominous shadows and restless spirits, where eerie whispers echo through the cold stone walls.", "The Shadowed Crypt");
         room5.getRoomItems().add(new Item("crypt key", "a key that unlocks the crypt door"));
         room5.getRoomItems().add(new Food("blood orange", "a rare fruit that restores your health", 35));
 
@@ -56,7 +56,7 @@ public class AdventureMap {
 
         // Room 6
 
-        room6 = new org.example.Room("You are now in Room 6", "A place of dark experiments and unspeakable horrors, where lingering apparitions guard the sinister secrets of their former mad scientist.", "The Forbidden Laboratory");
+        room6 = new org.example.Room("Room 6", "A place of dark experiments and unspeakable horrors, where lingering apparitions guard the sinister secrets of their former mad scientist.", "The Forbidden Laboratory");
         room6.getRoomItems().add(new Item("test tube", "a mysterious test tube filled with liquid"));
         room6.getRoomItems().add(new Food("cookie", "a cookie that restores your health", 10));
 
@@ -65,7 +65,7 @@ public class AdventureMap {
 
         // Room 7
 
-        room7 = new org.example.Room("You are now in Room 7", "This room is inhabited by a vengeful spirit, known as the \"Lady in White,\" who weeps eternally, leaving behind tear-stained mirrors and chilling cold spots.", "The Phantom's Chamber");
+        room7 = new org.example.Room("Room 7", "This room is inhabited by a vengeful spirit, known as the \"Lady in White,\" who weeps eternally, leaving behind tear-stained mirrors and chilling cold spots.", "The Phantom's Chamber");
         room7.getRoomItems().add(new Item("mirror shard", "a shard from a broken mirror"));
         room7.getRoomItems().add(new Food("ghostly elixir", "an elixir that restores your health", 40));
 
@@ -73,7 +73,7 @@ public class AdventureMap {
 
         //Room 8
 
-        room8 = new org.example.Room("You are now in Room 8", "Hidden away at the top of the house, this attic is a realm of perpetual twilight, inhabited by a mischievous poltergeist who delights in moving objects and casting eerie silhouettes.", "The Twilight Attic");
+        room8 = new org.example.Room("Room 8", "Hidden away at the top of the house, this attic is a realm of perpetual twilight, inhabited by a mischievous poltergeist who delights in moving objects and casting eerie silhouettes.", "The Twilight Attic");
         room8.getRoomItems().add(new Item("old photograph", "a faded photograph of a family"));
         room8.getRoomItems().add(new Food("stale bread", "bread that restores your health", 20));
 
@@ -81,7 +81,7 @@ public class AdventureMap {
 
         // Room 9
 
-        room9 = new org.example.Room("You are now in Room 9", "A room of sorrow and despair, where the anguished moans of lingering souls mix with the scent of embalming fluid, creating an eerie and unsettling atmosphere.", "The Melancholy Morgue");
+        room9 = new org.example.Room("Room 9", "A room of sorrow and despair, where the anguished moans of lingering souls mix with the scent of embalming fluid, creating an eerie and unsettling atmosphere.", "The Melancholy Morgue");
         room9.getRoomItems().add(new Item("embalming fluid", "a bottle of embalming fluid"));
         room9.getRoomItems().add(new Food("rotten apple", "an apple that restores your health", 5));
 

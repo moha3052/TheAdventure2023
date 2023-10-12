@@ -38,6 +38,7 @@ public class Adventure {
     }
 
 
+
     public void pickUp(String itemName){
         player.take(itemName);
     }
@@ -57,7 +58,9 @@ public class Adventure {
         return player.equip(equip);
     }
 
-
+    public String getplayerName(){
+        return player.getPlayerName();
+    }
 
     public ArrayList<Item> getRoomItems(){
         return player.getCurrentRoom().getRoomItems();
@@ -73,7 +76,6 @@ public class Adventure {
 public void getInventory(){
         player.getInventory();
 }
-
 
 
 }

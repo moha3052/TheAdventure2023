@@ -48,13 +48,23 @@ public class Enemy {
             return enemyHealthPoints;
         }
 
+        public boolean isDead(){
+            if (enemyHealthPoints <= 0){
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
 
 
         public String toString(){
             return "\n"+ "NameOfTheEnemy:"+ " " + nameOfTheEnemy +
                     "\n"+"DescriptionOfTheEnemy:"+ " " + descriptionOfTheEnemy +
-                    "\n" + getEnemyWeapon() +
-                    "\n"+ "EnemyHealthPoints:" +" "+ enemyHealthPoints;
+                    "\n"+ "EnemyHealthPoints:" +" "+ enemyHealthPoints +
+                    getEnemyWeapon() + "\n";
+
         }
 
 

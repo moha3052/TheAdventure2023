@@ -24,6 +24,10 @@ public class Adventure {
         player.look();
     }
 
+    public void help(){
+
+    }
+
     public void reName(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("enter player name: ");
@@ -68,6 +72,7 @@ public class Adventure {
     public int getHealth(){
         return player.getHealth();
     }
+
 
     public void move(String retning){
         player.move(retning);

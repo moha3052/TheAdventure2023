@@ -32,7 +32,7 @@ private Adventure adventure;
                     break;
 
 
-                case "2","exit", "EXIT":
+                case "3","exit", "EXIT":
                     System.out.println("You have exit the game");
                     keepRuning = false;
                     break;
@@ -54,9 +54,15 @@ String itemName;
 
             System.out.println("\n-------------------------------------------");
             System.out.println("enter a command");
+
+
         if (!startruning){
             System.out.println("Enter e,w,s,n to move to a next room");
-        System.out.println(adventure.getplayerName() + " is now in room 1");
+            System.out.println("Enter help or h, to get help");
+            System.out.println();
+            System.out.println(adventure.getplayerName() + " is now in room 1");
+            System.out.println("\n-------------------------------------------");
+
         } startruning = true;
 
         String command=scan.nextLine();
@@ -81,6 +87,11 @@ String itemName;
                 adventure.move("south");
                 break;
 
+            case "help", "h":
+                System.out.println("Her is you options:");
+                System.out.println();
+                getHelp();
+                break;
 
             case "take", "t":
             System.out.println("What do you want to take");
@@ -88,7 +99,7 @@ String itemName;
              adventure.pickUp(item);
              break;
 
-            case "inventorry", "i":
+            case "inventory", "i":
                 adventure.getInventory();
                 break;
 
@@ -101,7 +112,7 @@ String itemName;
                 break;
 
             case "eat":
-                System.out.println("What item do you want to eat");
+                System.out.println("What food do you want to eat");
                 String eatItem = scan.nextLine();
                 if (adventure.eat(eatItem)){
                     System.out.println(eatItem + " is eat");
@@ -125,7 +136,6 @@ String itemName;
                 }
 
 
-
             case "attack", "a":
                 System.out.println("attack something");
                 String enemyName = scan.nextLine();
@@ -143,11 +153,36 @@ String itemName;
                 System.exit(0);
                 break;
 
+            case "health", "he":
+                System.out.println(adventure.getHealth());
+                break;
+
+
                 default:
                 System.out.println(" try again");
                 break;
             }
         } while(runningMainGame);
 
+    }
+
+    public void getHelp(){
+        System.out.println("Enter e, w , s , n to move to a next room");
+        System.out.println();
+        System.out.println("Enter look or l, to look around the room");
+        System.out.println();
+        System.out.println("Enter eat, to eat the food you have in you inventory");
+        System.out.println();
+        System.out.println("Enter i, to look in you inventory");
+        System.out.println();
+        System.out.println("Enter drop or d, to drop a item or food");
+        System.out.println();
+        System.out.println("Enter equip or eq, to equip a weapon you want to have");
+        System.out.println();
+        System.out.println("Enter a, to attack somebody");
+        System.out.println();
+        System.out.println("Enter exit or ex to end the game");
+        System.out.println();
+        System.out.println("\n-------------------------------------------");
     }
 }
